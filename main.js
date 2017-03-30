@@ -9,8 +9,9 @@ function reqListener () {
     var profile = document.getElementById("handle");
  	var name = document.createElement("p");
  	var obj = json.result[0];
-
+  profile.style.display = "";
   document.getElementById("avatar").src =  obj.avatar;
+  //document.getElementById("avatar").class="w3-border w3-padding";
   
   name.innerHTML = " Handle : " + obj.handle;
   profile.appendChild(name);
@@ -43,7 +44,7 @@ function reqListener () {
 function errorRequest(){
 	para.style = "font-size:36px;color:red;";
 	para.innerHTML = "Error... Status : "+this.status + " Bad Request  ...TRY AGAIN ";
-
+   document.getElementById("handle").style.display = "none";
 }
 
 
@@ -64,18 +65,20 @@ function sendURL(){
 	handle.innerHTML = "";
 	var img = document.createElement("img");
 	img.id = "avatar";
+  
+  img.class="w3-border w3-padding"
 	handle.appendChild(img);
 
 	
 	
 	if(inp){
 		if(inp.value==""){
-			alert("Kuch USer name toh dalo bhai ");
+			alert("Please Enter Username(Translation(en to Hindi) Kuch USer name toh dalo bhai) ");
 		}else{
-			para.style = "font-size:36px;";
+			para.style = "font-size:36px; margin-left:45%;";
 
 			para.innerHTML = "Loading.....";
-			
+			document.getElementById("handle").style.display = "none";
 			var url = "http://codeforces.com/api/user.info?handles=" + inp.value;
 			getJSON(url);
 		}
