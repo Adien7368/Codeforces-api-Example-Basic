@@ -72,7 +72,7 @@ function update(){
 }
 
 function sendURL(){
-	document.getElementById("para").innerHTML = "Loding...";
+	document.getElementById("para").innerHTML = "Loading...";
 	codeforces.reset();
 	update();
 	if(codeforces.meathod != "submission"&&codeforces.meathod != "contest"&&codeforces.meathod != "recentAction")
